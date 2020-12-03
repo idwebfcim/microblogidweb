@@ -21,13 +21,14 @@ pipeline {
                         ${BUILD_TAG}/bin/pip3 install --upgrade pip && \
                         ${BUILD_TAG}/bin/pip3 install wheel && \
                         ${BUILD_TAG}/bin/pip3 install -r requirements.txt && \
-                        flask db stamp head && flask db migrate && flask db upgrade'
+                        flask db stamp head && flask db migrate && flask db upgrade && \
+                        deactivate'
             }
         }
         stage("Test") {
             steps {
                 echo " ============== Test =================="
-                sh 'python3 tests.py'
+                sh '. "${BUILD_TAG}/bin/activate" && python3 tests.py && deactivate'
             }
 
             post {
