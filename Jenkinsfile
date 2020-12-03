@@ -21,7 +21,7 @@ pipeline {
                         ${BUILD_TAG}/bin/pip3 install --upgrade pip && \
                         ${BUILD_TAG}/bin/pip3 install wheel && \
                         ${BUILD_TAG}/bin/pip3 install -r requirements.txt && \
-                        flask db migrate'
+                        flask db stamp head && flask db migrate && flask db upgrade'
             }
         }
         stage("Test") {
