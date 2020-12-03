@@ -27,7 +27,7 @@ pipeline {
         stage("Test") {
             steps {
                 echo " ============== Test =================="
-
+                sh 'python3 tests.py'
             }
         }
     }
