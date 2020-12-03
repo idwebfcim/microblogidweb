@@ -16,9 +16,9 @@ pipeline {
         stage("Build") {
             steps {
                 echo " ============== Build =================="
-                sh 'python3 -m venv ${BUILD_TAG} && \
-                        . ${BUILD_TAG}/bin/activate && \
-                        ${BUILD_TAG}/bin/pip3 install -r requirements.txt && \
+                sh 'python3 -m venv "${BUILD_TAG}" && \
+                        . "${BUILD_TAG}/bin/activate" && \
+                        "${BUILD_TAG}/bin/pip3" install -r requirements.txt && \
                         flask db migrate'
             }
         }
