@@ -16,7 +16,7 @@ pipeline {
         stage("Build") {
             steps {
                 echo " ============== Build =================="
-                sh 'virtualenv MicroBlog && \
+                sh 'python3 -m venv MicroBlog && \
                         . MicroBlog/bin/activate && \
                         pip3 install -r requirements.txt && \
                         flask db migrate'
