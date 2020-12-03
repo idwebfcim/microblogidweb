@@ -37,6 +37,14 @@ pipeline {
                 }
             }  
         }
+
+    }
+
+    post {
+        always {
+            echo "Deleting virtual environment created"
+            sh 'rm -rf ${BUILD_TAG}'
+        }
     }
 
 
