@@ -11,7 +11,7 @@ pipeline {
                  sh 'python3 -m venv "${BUILD_TAG}" && \
                      . ${BUILD_TAG}/bin/activate && \
                      ${BUILD_TAG}/bin/pip3 install --upgrade pip && \
-                     ${BUILD_TAG}/bin/pip3 wheel && \
+                     ${BUILD_TAG}/bin/pip3 install wheel && \
                      ${BUILD_TAG}/bin/pip3 install -r requirements.txt && \
                      flask db stamp head && flask db migrate && flask db upgrade && deactivate'
              }
