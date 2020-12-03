@@ -11,6 +11,9 @@ COPY app app
 COPY deployment deployment
 COPY migrations migrations
 
+COPY microblog.py microblog.py
+COPY config.py config.py
+
 RUN flask db stamp head
 RUN flask db migrate
 RUN flask db upgrade
