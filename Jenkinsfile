@@ -3,6 +3,12 @@
 pipeline {
 
      agent any
+     
+     options {
+          buildDiscarder(logRotator(numToKeepStr: '5'))
+          timestamps()
+          disableConcurrentBuild()
+     }
 
      stages {
 
