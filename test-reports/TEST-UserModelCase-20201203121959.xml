@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<testsuite errors="0" failures="0" name="UserModelCase-20201203121959" tests="4" time="0.217">
+	<testcase classname="UserModelCase" name="test_avatar" time="0.047"/>
+	<testcase classname="UserModelCase" name="test_follow" time="0.033"/>
+	<testcase classname="UserModelCase" name="test_follow_posts" time="0.037"/>
+	<testcase classname="UserModelCase" name="test_password_hashing" time="0.099"/>
+	<system-out>
+<![CDATA[]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>

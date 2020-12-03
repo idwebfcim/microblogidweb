@@ -29,6 +29,12 @@ pipeline {
                 echo " ============== Test =================="
                 sh 'python3 tests.py'
             }
+
+            post {
+                always {
+                    junit 'test-reports/*.xml'
+                }
+            }  
         }
     }
 
