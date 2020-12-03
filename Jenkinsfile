@@ -30,10 +30,5 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // sh 'rm -rf ${BUILD_TAG}'
-        }
-    }
 
 }
