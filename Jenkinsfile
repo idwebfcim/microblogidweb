@@ -19,8 +19,7 @@ pipeline {
                 sh 'virtualenv MicroBlog && \
                         . MicroBlog/bin/activate && \
                         pip3 install -r requirements.txt && \
-                        flask db migrate
-                   '
+                        flask db migrate'
             }
         }
         stage("Test") {
