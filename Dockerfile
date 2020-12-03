@@ -5,9 +5,10 @@ RUN adduser -D microblog
 WORKDIR /home/microblog
 
 COPY requirements.txt requirements.txt
-RUN python -m venv venv
-RUN venv/bin/pip install -r requirements.txt
-RUN venv/bin/pip install gunicorn pymysql
+
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+RUN pip install gunicorn pymysql
 
 COPY app app
 COPY migrations migrations
@@ -19,5 +20,12 @@ ENV FLASK_APP microblog.py
 RUN chown -R microblog:microblog ./
 USER microblog
 
+RUN flask db upgrade
+
 EXPOSE 5000
-ENTRYPOINT ["./boot.sh"]
+
+#CMD ["echo", "Hello World"]
+
+#ENTRYPOINT ["./boot.sh"]
+
+ENTRYPOINT flask run --host=0.0.0.0
