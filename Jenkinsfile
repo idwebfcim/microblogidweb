@@ -19,7 +19,7 @@ pipeline {
 
          stage("Test") {
              steps {
-                 sh 'uptime'
+                 sh '. ${BUILD_TAG}/bin/activate && python3 tests.py && deactivate'
              }
          }
 
